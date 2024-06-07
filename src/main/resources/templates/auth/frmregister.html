@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Usuario</title>
+    <link th:href="@{/css/bootstrap/bootstrap.css}" rel="stylesheet" />
+    <script th:src="@{/js/bootstrap/bootstrap.bundle.js}" type="text/javascript"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="text-center my-4">
+                <h1>REGISTRO DE USUARIO</h1>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <form th:action="@{/auth/register}" method="post">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="nombres" name="nombres" placeholder="Nombres">
+                            <label for="nombres">Nombres</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Apellidos">
+                            <label for="apellidos">Apellidos</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario">
+                            <label for="usuario">Usuario</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                            <label for="password">Password</label>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button type="button" class="btn btn-secondary" onclick="location.href='@{/auth/login}'">Regresar al Login</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
