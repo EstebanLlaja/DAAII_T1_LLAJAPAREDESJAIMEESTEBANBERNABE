@@ -36,11 +36,10 @@ public class UsuarioService implements IUsuarioService {
     }
 
     @Override
-    public void actualizarUsuario(Usuario usuario) {
-        usuarioRepository.actualizarUsuario(
-                usuario.getNombres(),usuario.getApellidos(),
-                usuario.getActivo(),usuario.getIdusuario()
-        );
+    public void actualizarContraseña(Integer idusuario, String nuevaContraseña) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String contraseñaCodificada = passwordEncoder.encode(nuevaContraseña);
+        usuarioRepository.actualizarContraseña(idusuario, contraseñaCodificada);
     }
     @Override
     public List<Usuario> listarUsuario() {

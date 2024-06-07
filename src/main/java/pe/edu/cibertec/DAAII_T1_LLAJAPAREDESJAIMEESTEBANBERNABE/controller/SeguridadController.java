@@ -34,19 +34,22 @@ public class SeguridadController {
             usuario.setApellidos(usuarioDto.getApellidos());
             if(usuarioDto.getIdusuario() > 0){
                 usuario.setIdusuario(usuarioDto.getIdusuario());
+                usuarioService.actualizarContraseña(usuarioDto.getIdusuario(), usuarioDto.getPassword());
                 usuario.setActivo(usuarioDto.getActivo());
-                usuarioService.actualizarUsuario(usuario);
-            }else{
+                // No se actualizan otros campos del usuario, solo la contraseña
+            } else {
                 usuario.setNomusuario(usuarioDto.getNomusuario());
                 usuario.setEmail(usuarioDto.getEmail());
                 usuarioService.guardarUsuario(usuario);
             }
-        }catch (Exception ex){
+        } catch (Exception ex) {
             mensaje = "Usuario no registrado, error en la BD";
             respuesta = false;
         }
         return ResultadoDto.builder().mensaje(mensaje).respuesta(respuesta).build();
     }
+
+
 
     @GetMapping("/usuario/{id}")
     @ResponseBody
