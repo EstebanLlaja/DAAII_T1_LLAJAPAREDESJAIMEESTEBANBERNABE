@@ -9,10 +9,9 @@
 <nav th:replace="~{layout::menu}"></nav>
 <div class="card">
     <div class="card-header text-bg-danger">
-        Mantenimiento de usuarios:
+        Actualizacion de Contraseña:
     </div>
     <div class="card-body">
-        <button id="btnagregar" type="button" class="btn btn-primary">Agregar</button>
         <hr />
         <div id="divmensaje"></div>
         <table id="tblusuario" class="table">
@@ -36,7 +35,7 @@
                 <td>
                     <button type="button" class="btn btn-primary btnactualizar"
                             th:data-usuid="${usuario.idusuario}"
-                    >Actualizar</button>
+                    >Actualizar Contraseña</button>
                 </td>
             </tr>
             </tbody>
